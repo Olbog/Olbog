@@ -3,12 +3,19 @@
 # a, b, c, d, e = map (int, input().split()) 
 # print (a + b + c + d + e)
 
-a = int (input ())
-b = int (input ())
-c = int (input ())
-d = int (input ())
-e = int (input ())
-print (a + b + c + d + e)
+# a = int (input ())
+# b = int (input ())
+# c = int (input ())
+# d = int (input ())
+# e = int (input ())
+# print (a + b + c + d + e)
+
+
+s = 0
+for i in range(5):
+    i = int (input())
+    s+=i
+print (s)
 
 
 # 2. Написать программу, которая будет принимать целове число (день в году)
