@@ -1,15 +1,18 @@
 # 1. Найти сумму S введенных с клавиатуры вещественных чисел
 
-# a, b, c, d, e = map (int, input().split()) 
-# print (a + b + c + d + e)
+a, b, c, d, e = map (int, input().split()) 
+print (a + b + c + d + e)
 
-# a = int (input ())
-# b = int (input ())
-# c = int (input ())
-# d = int (input ())
-# e = int (input ())
-# print (a + b + c + d + e)
+#1.2
 
+a = int (input ())
+b = int (input ())
+c = int (input ())
+d = int (input ())
+e = int (input ())
+print (a + b + c + d + e)
+
+#1.3
 
 s = 0
 a = int(input())
@@ -47,6 +50,18 @@ elif c > a:
 else: 
     print ('km/h больше')
 
+# 4. Программа которая проверяет, является ли введенное число простым?
 
+a = int (input())
+b = range (2, a-1)
+if a > 1:
+    for i in b:
+        if a % int (i) == 0:
+            print ('сложное')
+            break
+    else:
+        print ('простое')
+else:
+    print ('Вы ввели 1 или менее')    
 
 
