@@ -20,7 +20,7 @@ while g > 0:
     r +=1
     print(c)
 
-
+ 
 
 
 l2 = [l[i] + l[i+1] for i in range(t-1)]
