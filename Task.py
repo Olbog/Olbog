@@ -20,7 +20,11 @@ while g > 0:
     r +=1
     print(c)
 
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 364b5fb68497bfc8f207477d4faacc578ccc7f9a
 
 
 l2 = [l[i] + l[i+1] for i in range(t-1)]
