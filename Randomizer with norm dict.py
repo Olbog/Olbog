@@ -7,9 +7,9 @@ def print_menu():
         print(f'{k} {value.__name__}')
 
 
-def write_results(name, b):
+def write_results(name, attempts):
     file_l = open('./Results.txt', 'a') 
-    file_l.write(f'{name} had {b+1} trying \n')
+    file_l.write(f'{name} had {attempts+1} trying \n')
     file_l.close()
 
 
@@ -17,30 +17,30 @@ def write_results(name, b):
 def play():
     print('Good, lets go..')
     name = input('Представьтесь пожалуйста ')
-    o = int(input('Предложите Ваше число: '))
-    b = 0
-    k = []
-    a = randint(1,1000)
-    if a < 0:
-        a = abs (a)
+    number = int(input('Предложите Ваше число: '))
+    attempts = 0
+    duplicate_values = []
+    random_number = randint(1,1000)
+    if random_number < 0:
+        random_number = abs (random_number)
     else:
-        a == a
-    while a != o:
-        i = o
-        if i not in k:
-            k.append (i)
-        elif i in k:
+        random_number == random_number
+    while random_number != number:
+        i = number
+        if i not in duplicate_values:
+            duplicate_values.append (i)
+        elif i in duplicate_values:
             print('Вы повторяетесь')
-            o = int(input ())
+            number = int(input ())
             continue
-        b += 1
-        if o > a:
-            print(f'Загаданное число меньше, количество попыток: {b}')
-        elif o < a:
-            print(f'Загаданное число больше, количество попыток: {b}')
-        o = int(input ())
-    print(f'{name}, Вы угадали, это число {a} и Вы потратили {b+1} попыток')
-    write_results (name, b)
+        attempts += 1
+        if number > random_number:
+            print(f'Загаданное число меньше, количество попыток: {attempts}')
+        elif number < random_number:
+            print(f'Загаданное число больше, количество попыток: {attempts}')
+        number = int(input ())
+    print(f'{name}, Вы угадали, это число {random_number} и Вы потратили {attempts+1} попыток')
+    write_results (name, attempts)
 
     
 def read_results():
@@ -48,8 +48,7 @@ def read_results():
 
 
 def exiting():
-    print('Okay, I"m exiting of the game')
-    raise SystemExit
+    pass
 
 def process_input(choice):
     MENU[choice]()
@@ -63,7 +62,9 @@ def main():
     while True:
         print_menu()
         choice = int(input ('Сделайте Ваш выбор пожалуйста: '))
-
+        if choice == 3:
+            print('Okay, I"m exiting of the game')
+            break
         try:
             process_input(choice)
         except:
