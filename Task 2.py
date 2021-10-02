@@ -59,3 +59,19 @@ a = list(i for i in range(51) if i != 13 and i != 45)
 print(a)
 
 
+
+l = [34, 'sd', 56, 34.34]
+for i in enumerate(l):
+    print(i)
+
+
+
+new_dict = {
+    (1, 'age'): 24,
+    (2, 'name'): 'Bob',
+    (3, 'Surname'): 'Smith' 
+}
+for i in new_dict.items():
+    print(i)
+    break
+

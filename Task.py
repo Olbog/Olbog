@@ -3,8 +3,8 @@ l = [1,6,3,2,5,1,7]
 
 def sum (a,b):
     return a + b
-c = map(sum,l[:-1:2], l[1::2])
-print (list(c))
+# c = map(sum,l[:-1:2], l[1::2])
+# print (list(c))
 
 
 
@@ -20,11 +20,6 @@ while g > 0:
     r +=1
     print(c)
 
-<<<<<<< HEAD
- 
-=======
-
->>>>>>> 364b5fb68497bfc8f207477d4faacc578ccc7f9a
 
 
 l2 = [l[i] + l[i+1] for i in range(t-1)]
