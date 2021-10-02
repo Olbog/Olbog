@@ -1,5 +1,5 @@
 from random import randint
-file_l = open('./Results.txt') 
+file_l = open('./Results.txt', 'a') 
 
 def print_menu():
     print('Menu: ')
