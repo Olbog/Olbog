@@ -250,7 +250,7 @@ main()
 # final version
 
 from random import randint
-file_l = open('./Results.txt') 
+
 
 def print_menu():
     print('Menu: ')
@@ -295,6 +295,7 @@ def play():
 
     
 def read_results():
+    file_l = open('./Results.txt', 'r+') 
     print(file_l.read())
 
 
@@ -316,10 +317,12 @@ def main():
         if choice == 3:
             print('Okay, I"m exiting of the game')
             break
-        try:
-            process_input(choice)
-        except:
-            print('Данного пункта в меню нет\nПовторите Ваш выбор: ')
+        else:
+            try:
+                process_input(choice)
+            except:
+                print('Данного пункта в меню нет\nПовторите Ваш выбор: ')
 
 main()
+
 
