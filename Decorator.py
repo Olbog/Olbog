@@ -9,7 +9,6 @@
 def new_decorator(func):
     def decorated_function(*args, **kwargs):
         print('Код до выполнения функции')
-        func(*args, **kwargs)
         res = func(*args, **kwargs)
         print(res)
         print('Код после выполнения функции')
