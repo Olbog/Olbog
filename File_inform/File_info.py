@@ -21,8 +21,10 @@
 
 import os
 import datetime
+from sys import argv
+import codecs
+path_in_file = argv[0] if len(argv) == 1 else argv[1]
 
-path_in_file = input('Введите путь к файлу: \n')
 
 info_file_menu = {
     'Имя данного файла:' : os.path.basename(path_in_file),
@@ -31,23 +33,21 @@ info_file_menu = {
     'Файл был создан:'  : datetime.datetime.fromtimestamp(os.path.getmtime(path_in_file))
 }
 
-def file_info(a):
+def file_info():
     for k, value in info_file_menu.items():
         print(f'{k} {value}')
 
-    with open(path_in_file, 'a+') as file:
-        file.seek(0)
+    with codecs.open( path_in_file, "r", "utf_8_sig" ) as file:
         line_count = 0
         for line in file:
             if line_count < 5:
-                print(line[:-2])
+                print('>', line.rstrip('\r\n'))
             elif line_count >= 6:
-                file.seek(2)
                 print('...')
                 break
             line_count +=1
 
-def dir_info(a):
+def dir_info():
 
     info_dir_menu = {
         'Название данного каталога : ' : os.path.basename(path_in_file),
@@ -63,9 +63,9 @@ def dir_info(a):
 
 
 if os.path.isfile(path_in_file):
-    file_info(path_in_file)
+    file_info()
 elif os.path.isdir(path_in_file):
-    dir_info(path_in_file)
+    dir_info()
 
 
 
