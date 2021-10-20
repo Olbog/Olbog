@@ -15,7 +15,64 @@
 4.2 Денежные ставки
 4.3 Таблицу рузельтатов '''
 
-import random
-a = int(input())
-b = random.randint(2,11)
-print(b)
+
+from itertools import product # возвращает «декартово произведение»
+from random import shuffle
+
+player_name = input('Please enter your name: ') # ввод имени игрока
+count_of_decks = int(input('Enter the number of desks: ')) # ввод кол-во колод карт для данной сессии
+
+suits_card = ['♥️', '♦️', '♣️', '♠️']
+number_card = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king', 'ace']
+
+
+
+class Deck:
+
+    def __init__(self):
+        self.cards = self._new_deck()
+        shuffle(self.cards)
+
+    def _new_deck(self):
+        cards = []
+        for suit, number in product(suits_card, number_card):
+            if number == 'ace':
+                points = 11
+            elif number.isdigit():
+                points = int(number)
+            else:
+                points = 10
+            card_1 = Card(suit=suit, number=number, points=points)
+            cards.append(card_1)
+        return cards
+    
+    # Выдает карту из колоды и удаляет ее оттуда
+    
+    def card_get(self): 
+        return self.cards.pop()
+
+
+class Card:
+
+    def __init__(self, suit, number, points):
+        self.suit = suit
+        self.rank = number
+        self.points = points
+
+
+class Game:
+    pass
+
+
+class Player:
+    pass
+
+class Results:
+    pass
+
+
+        
+        
+
+
+
