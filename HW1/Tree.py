@@ -20,18 +20,28 @@ class Tree:
 
 # добавление
     def insert(self, value):
-        if self.root is None:
-            self.root = Node(value)
-        if value < self.root:
-            if self.left == None:
-                self.left = Node(value)
-            else:
-                self.insert(value,self.left)
-        else:
-            if self.right == None:
-                self.right = Node(value)
-            else:
-                self.inser(value, self.right)
+        parent = None
+        v = self.root
+        while v is not None:
+            parent = v
+            if value < v.key:
+                v = v.left
+            elif value > v.key:
+                v = v.right
+            else:  # x == v.key
+                return
+        
+        w = Node
+    
+        if parent is None:
+            self.root = w
+        elif value < parent.key:
+            parent.left = w
+        elif value > parent.key:
+            parent.right = w
+                
+
+    
 
 class Node:
     
@@ -46,5 +56,5 @@ class Node:
       
 
 tree = Tree(Node(5, 25))
-tree.insert(3, 9)
-
+tree.insert(3)
+print(tree)
